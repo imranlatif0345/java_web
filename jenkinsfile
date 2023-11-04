@@ -32,14 +32,6 @@ pipeline {
           war: 'target/*.war',
           contextPath: 'pipeline-app'
       }
-   stage("foo") {
-        steps {
-            script {
-                    env.FILENAME = readFile 'output.txt'
-                }
-                echo "${env.FILENAME}"
-            }
-        }
     }
   }
 }
