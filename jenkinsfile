@@ -1,6 +1,10 @@
 def tomcatServerUrl = "http://0.0.0.0:9020"
 pipeline {
   agent any
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "local_maven"
+    }
   stages {
     //Use this code for inline pipeline script option
    stage('Git Checkout') {
