@@ -1,13 +1,6 @@
-//def tomcatServerUrl = "http://0.0.0.0:9020"
+def tomcatServerUrl = "http://0.0.0.0:9020"
 pipeline {
   agent any
- environment{
-          tomcatServerUrl = "http://0.0.0.0:9020"
-        }
- tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-        maven "local_maven"
-    }
   stages {
     //Use this code for inline pipeline script option
    stage('Git Checkout') {
@@ -30,7 +23,7 @@ pipeline {
     stage('Deploy') {
       steps {
         //deploy war on tomcat server
-          deploy adapters: [tomcat(url: "${env.tomcatServerUrl}",
+          deploy adapters: [tomcat(url: "${tomcatServerUrl}",
           credentialsId: 'tomcat-credentials')],
           war: 'target/*.war',
           contextPath: 'pipeline-app'
