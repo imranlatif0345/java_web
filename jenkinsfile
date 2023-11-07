@@ -1,9 +1,7 @@
 //def tomcatServerUrl = "http://0.0.0.0:9020"
 pipeline {
   agent any
-       environment {
-        tomcatServerUrl  = "http://0.0.0.0:9020"
-    }
+   
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "local_maven"
